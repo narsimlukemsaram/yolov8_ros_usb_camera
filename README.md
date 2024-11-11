@@ -4,9 +4,7 @@ This package provides a ROS wrapper for [PyTorch-YOLOv8](https://github.com/ultr
 
 Install and Run YOLOv8 Object Detection using a USB Camera with ROS Noetic on Ubuntu 20.04
 
-<p>
-   <img width = "1000" src="https://github.com/narsimlukemsaram/yolov8_ros/media/image.png"></a>
-</p>
+![image.png](media/image.png)
 
 # Develop Environment：
 - Ubuntu 20.04
