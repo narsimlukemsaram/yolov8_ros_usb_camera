@@ -1,15 +1,12 @@
-# Install and Run YOLOv8 Object Detection using USB Camera with ROS Noetic on Ubuntu 20.04
+# Install and Run YOLOv8 Object Detection using a USB Camera with ROS Noetic on Ubuntu 20.04
 
 This package provides a ROS wrapper for [PyTorch-YOLOv8](https://github.com/ultralytics/ultralytics) based on PyTorch-YOLOv8. 
 
-Install and Run YOLOv8 Object Detection using USB Camera with ROS Noetic on Ubuntu 20.04
-
-**Authors**: Narsimlu Kemsaram (<n.kemsaram@ucl.ac.uk>)
+Install and Run YOLOv8 Object Detection using a USB Camera with ROS Noetic on Ubuntu 20.04
 
 <p>
-   <img width = "1000" src="https://github.com/narsimlukemsaram/yolov8_ros/image.png"></a>
+   <img width = "1000" src="https://github.com/narsimlukemsaram/yolov8_ros_usb_camera/media/image.png"></a>
 </p>
-
 
 # Develop Environment：
 - Ubuntu 20.04
@@ -41,9 +38,9 @@ catkin_make
 
 # Setup and make Ubuntu 20.04 to identify the camera:
 
-First plug the camera to USB port.
+First, plug in the camera to the USB port.
 
-Open a terminal, list all cameras plugged in and detected by system:
+Open a terminal, and list all cameras plugged in and detected by the system:
 
 ```
 ls /dev/video*
@@ -53,10 +50,9 @@ Plug and unplug the Logitech C920 HD Pro camera and identify the correct /dev/vi
 
 In my case camera was mounted on path /dev/video2.
 
-
 # Open the usb_cam_stream_publisher.launch file and change your identified camera:
 
-Open the usb_cam_stream_publisher.launch file and change the /dev/video2 and auto focus control, as follows:
+Open the usb_cam_stream_publisher.launch file and change the /dev/video2 and autofocus control, as follows:
 
 ```
 <!--
@@ -68,7 +64,6 @@ roslaunch usb_cam_stream_publisher.launch video_device:=/dev/video2 image_width:
 <arg name="video_device" default="/dev/video2" /> <!-- video2 for Logitech C920 HD Pro Camera  -->
 <arg name="image_width" default="640" />
 <arg name="image_height" default="480" />
-
 
 <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
 	<param name="video_device" value="$(arg video_device)" />
@@ -92,10 +87,6 @@ roslaunch usb_cam_stream_publisher.launch video_device:=/dev/video2 image_width:
 
 Launch yolo_v8.launch file, all you should have to do is change the image topic you would like to subscribe to:
 
-
 ```
 roslaunch yolov8_ros yolo_v8.launch
 ```
-
-  
-
